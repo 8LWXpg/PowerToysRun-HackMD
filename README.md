@@ -9,8 +9,8 @@ Checkout the [Template](https://github.com/8LWXpg/PowerToysRun-PluginTemplate) f
 ### Manual
 
 1. Download the latest release of the from the releases page.
-2. Extract the zip file's contents to `%LocalAppData%\Microsoft\PowerToys\PowerToys Run\Plugins`
-3. Restart PowerToys.
+1. Extract the zip file's contents to `%LocalAppData%\Microsoft\PowerToys\PowerToys Run\Plugins`
+1. Restart PowerToys.
 
 ### Via [ptr](https://github.com/8LWXpg/ptr)
 
@@ -20,19 +20,21 @@ ptr add HackMD 8LWXpg/PowerToysRun-HackMD
 
 ## Usage
 
+1. Generate a API token in [settings](https://hackmd.io/settings#api)
+1. Add the token to the plugin settings.
 1. Open PowerToys Run (default shortcut is <kbd>Alt+Space</kbd>).
-2. Type `hm`.
+1. Type `hm`.
 
 ## Building
 
 1. Clone the repository and the dependencies in `lib` with `copyLib.ps1`.
-2. run `dotnet build -c Release`.
+1. run `dotnet build -c Release`.
 
 ## Debugging
 
 1. Build the project.
-2. Run `debug.ps1`.
-3. Attach to the process `PowerToys.PowerLauncher`.
+1. Run `debug.ps1`.
+1. Attach to the process `PowerToys.PowerLauncher`.
 
 ## Contributing
 
