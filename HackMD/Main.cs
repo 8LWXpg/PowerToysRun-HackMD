@@ -38,7 +38,18 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDispos
 
 	public List<Result> Query(Query query)
 	{
-		ArgumentNullException.ThrowIfNull(query);
+		if (string.IsNullOrEmpty(_authToken))
+		{
+			return
+			[
+				new Result
+				{
+					Title = Properties.Resources.error_no_auth_token,
+					SubTitle = Properties.Resources.error_no_auth_token_desc,
+					IcoPath = _iconPath,
+				},
+			];
+		}
 
 		IEnumerable<Note> notes = _cache.GetOrAdd("notes", Helpers.NotesHelper.GetAllNotes);
 		var results = notes.Select(note =>

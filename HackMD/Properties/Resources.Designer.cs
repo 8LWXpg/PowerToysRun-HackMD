@@ -61,6 +61,24 @@ namespace Community.PowerToys.Run.Plugin.HackMD.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to API token is not set.
+        /// </summary>
+        internal static string error_no_auth_token {
+            get {
+                return ResourceManager.GetString("error_no_auth_token", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change in settings.
+        /// </summary>
+        internal static string error_no_auth_token_desc {
+            get {
+                return ResourceManager.GetString("error_no_auth_token_desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open HackMD notes.
         /// </summary>
         internal static string plugin_description {

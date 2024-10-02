@@ -126,4 +126,10 @@
   <data name="setting_api_token" xml:space="preserve">
     <value>API token</value>
   </data>
+  <data name="error_no_auth_token" xml:space="preserve">
+    <value>API token is not set</value>
+  </data>
+  <data name="error_no_auth_token_desc" xml:space="preserve">
+    <value>Change in settings</value>
+  </data>
 </root>
