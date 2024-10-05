@@ -1,6 +1,6 @@
 # HackMD Plugin for PowerToys Run
 
-A [PowerToys Run](https://aka.ms/PowerToysOverview_PowerToysRun) plugin to open [HackMD](https://hackmd.io) notes.
+A [PowerToys Run](https://aka.ms/PowerToysOverview_PowerToysRun) plugin for opening [HackMD](https://hackmd.io) notes.
 
 Checkout the [Template](https://github.com/8LWXpg/PowerToysRun-PluginTemplate) for a starting point to create your own plugin.
 
