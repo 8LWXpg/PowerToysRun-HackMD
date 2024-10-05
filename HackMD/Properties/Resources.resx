@@ -117,19 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="plugin_description" xml:space="preserve">
-    <value>Open HackMD notes</value>
-  </data>
-  <data name="plugin_name" xml:space="preserve">
-    <value>HackHD</value>
-  </data>
-  <data name="setting_api_token" xml:space="preserve">
-    <value>API token</value>
-  </data>
   <data name="error_no_auth_token" xml:space="preserve">
     <value>API token is not set</value>
   </data>
   <data name="error_no_auth_token_desc" xml:space="preserve">
     <value>Change in settings</value>
+  </data>
+  <data name="plugin_description" xml:space="preserve">
+    <value>Open HackMD notes</value>
+  </data>
+  <data name="plugin_name" xml:space="preserve">
+    <value>HackMD</value>
+  </data>
+  <data name="setting_api_token" xml:space="preserve">
+    <value>API token</value>
+  </data>
+  <data name="setting_view_mode" xml:space="preserve">
+    <value>View Mode</value>
+  </data>
+  <data name="setting_view_mode_both" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="setting_view_mode_desc" xml:space="preserve">
+    <value>The view mode used with notes</value>
+  </data>
+  <data name="setting_view_mode_edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="setting_view_mode_view" xml:space="preserve">
+    <value>View</value>
   </data>
 </root>

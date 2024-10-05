@@ -1,4 +1,5 @@
 using Community.PowerToys.Run.Plugin.HackMD.Helpers;
+using Community.PowerToys.Run.Plugin.HackMD.Properties;
 using LazyCache;
 using ManagedCommon;
 using Microsoft.PowerToys.Settings.UI.Library;
@@ -10,14 +11,16 @@ namespace Community.PowerToys.Run.Plugin.HackMD;
 public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDisposable
 {
 	private const string AuthToken = nameof(AuthToken);
+	private const string ViewMode = nameof(ViewMode);
 
 	private string? _authToken;
+	private int? _viewMode;
 	private CachingService? _cache;
 	private PluginInitContext? _context;
 	private string? _iconPath;
 	private bool _disposed;
-	public string Name => Properties.Resources.plugin_name;
-	public string Description => Properties.Resources.plugin_description;
+	public string Name => Resources.plugin_name;
+	public string Description => Resources.plugin_description;
 	public static string PluginID => "7ce12aff470442158be4b7c5d02ef63e";
 
 	public IEnumerable<PluginAdditionalOption> AdditionalOptions =>
@@ -26,14 +29,29 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDispos
 		{
 			PluginOptionType = PluginAdditionalOption.AdditionalOptionType.Textbox,
 			Key = AuthToken,
-			DisplayLabel = Properties.Resources.setting_api_token,
+			DisplayLabel = Resources.setting_api_token,
 		},
+		new()
+		{
+			PluginOptionType = PluginAdditionalOption.AdditionalOptionType.Combobox,
+			Key = ViewMode,
+			DisplayLabel = Resources.setting_view_mode,
+			DisplayDescription = Resources.setting_view_mode_desc,
+			ComboBoxItems =
+			[
+				new(Resources.setting_view_mode_view, "0"),
+				new(Resources.setting_view_mode_both, "1"),
+				new(Resources.setting_view_mode_edit, "2"),
+			],
+			ComboBoxValue = 1,
+		}
 	];
 
 	public void UpdateSettings(PowerLauncherPluginSettings settings)
 	{
 		_authToken = settings?.AdditionalOptions?.FirstOrDefault(x => x.Key == AuthToken)?.TextValue ?? string.Empty;
-		Helpers.NotesHelper.UpdateAuthToken(_authToken);
+		NotesHelper.UpdateAuthToken(_authToken);
+		_viewMode = settings?.AdditionalOptions?.FirstOrDefault(x => x.Key == ViewMode)?.ComboBoxValue ?? 1;
 	}
 
 	public List<Result> Query(Query query)
@@ -61,7 +79,7 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDispos
 				IcoPath = _iconPath,
 				Score = matches.Score,
 				TitleHighlightData = matches.MatchData,
-				Action = _ => NotesHelper.OpenInBrowser(note),
+				Action = _ => NotesHelper.OpenInBrowser(note, (NoteViewMode)_viewMode!),
 			};
 		}).ToList();
 

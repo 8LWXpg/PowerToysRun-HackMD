@@ -29,8 +29,26 @@ public static class NotesHelper
 		}
 	}
 
-	public static bool OpenInBrowser(Note note) =>
-		Helper.OpenCommandInShell(DefaultBrowserInfo.Path, DefaultBrowserInfo.ArgumentsPattern, $"https://hackmd.io/{note.Id}");
+	public static bool OpenInBrowser(Note note, NoteViewMode viewMode) =>
+		Helper.OpenCommandInShell(DefaultBrowserInfo.Path, DefaultBrowserInfo.ArgumentsPattern, $"https://hackmd.io/{note.Id}?{viewMode.ToUrlString()}");
 }
 
 public record Note(string Id, string Title);
+
+public enum NoteViewMode
+{
+	View = 0,
+	Both = 1,
+	Edit = 2,
+}
+
+public static class NoteViewModeExtensions
+{
+	public static string ToUrlString(this NoteViewMode mode) => mode switch
+	{
+		NoteViewMode.View => "view",
+		NoteViewMode.Both => "both",
+		NoteViewMode.Edit => "edit",
+		_ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null),
+	};
+}

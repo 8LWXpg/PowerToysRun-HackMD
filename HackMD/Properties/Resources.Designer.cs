@@ -104,5 +104,50 @@ namespace Community.PowerToys.Run.Plugin.HackMD.Properties {
                 return ResourceManager.GetString("setting_api_token", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Mode.
+        /// </summary>
+        internal static string setting_view_mode {
+            get {
+                return ResourceManager.GetString("setting_view_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both.
+        /// </summary>
+        internal static string setting_view_mode_both {
+            get {
+                return ResourceManager.GetString("setting_view_mode_both", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The view mode used in note.
+        /// </summary>
+        internal static string setting_view_mode_desc {
+            get {
+                return ResourceManager.GetString("setting_view_mode_desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string setting_view_mode_edit {
+            get {
+                return ResourceManager.GetString("setting_view_mode_edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        internal static string setting_view_mode_view {
+            get {
+                return ResourceManager.GetString("setting_view_mode_view", resourceCulture);
+            }
+        }
     }
 }
