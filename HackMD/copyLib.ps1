@@ -4,7 +4,7 @@ Push-Location
 Set-Location $PSScriptRoot
 
 sudo {
-	$ptPath = "C:\Program Files\PowerToys"
+	$ptPath = 'C:\Program Files\PowerToys'
 
 	@(
 		'PowerToys.Common.UI.dll',
