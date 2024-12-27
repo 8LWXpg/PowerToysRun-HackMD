@@ -1,14 +1,14 @@
 {
-  "ID": "7ce12aff470442158be4b7c5d02ef63e",
-  "ActionKeyword": "hm",
-  "Disabled": false,
-  "IsGlobal": false,
-  "Name": "HackMD",
-  "Author": "8LWXpg",
-  "Version": "1.1.0",
-  "Language": "csharp",
-  "Website": "https://github.com/8LWXpg/PowerToysRun-HackMD",
-  "ExecuteFileName": "Community.PowerToys.Run.Plugin.HackMD.dll",
-  "IcoPathDark": "Images\\HackMD.dark.png",
-  "IcoPathLight": "Images\\HackMD.light.png"
+	"ID": "7ce12aff470442158be4b7c5d02ef63e",
+	"ActionKeyword": "hm",
+	"Disabled": false,
+	"IsGlobal": false,
+	"Name": "HackMD",
+	"Author": "8LWXpg",
+	"Version": "1.2.0",
+	"Language": "csharp",
+	"Website": "https://github.com/8LWXpg/PowerToysRun-HackMD",
+	"ExecuteFileName": "Community.PowerToys.Run.Plugin.HackMD.dll",
+	"IcoPathDark": "Images\\HackMD.dark.png",
+	"IcoPathLight": "Images\\HackMD.light.png"
 }
