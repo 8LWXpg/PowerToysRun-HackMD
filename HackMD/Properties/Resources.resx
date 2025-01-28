@@ -147,11 +147,11 @@
   <data name="setting_view_mode_view" xml:space="preserve">
     <value>View</value>
   </data>
-  <data name="tooltip_open_edit" xml:space="preserve">
-    <value>Open in edit mode (Ctrl+Alt+E)</value>
-  </data>
   <data name="tooltip_open_both" xml:space="preserve">
     <value>Open in both mode (Ctrl+Alt+B)</value>
+  </data>
+  <data name="tooltip_open_edit" xml:space="preserve">
+    <value>Open in edit mode (Ctrl+Alt+E)</value>
   </data>
   <data name="tooltip_open_view" xml:space="preserve">
     <value>Open in view mode (Ctrl+Alt+V)</value>
