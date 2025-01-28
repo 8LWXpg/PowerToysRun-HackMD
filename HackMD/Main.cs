@@ -4,11 +4,12 @@ using LazyCache;
 using ManagedCommon;
 using Microsoft.PowerToys.Settings.UI.Library;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Wox.Infrastructure;
 using Wox.Plugin;
 
 namespace Community.PowerToys.Run.Plugin.HackMD;
-public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDisposable
+public class Main : IPlugin, IPluginI18n, ISettingProvider, IContextMenu, IReloadable, IDisposable
 {
 	private const string AuthToken = nameof(AuthToken);
 	private const string ViewMode = nameof(ViewMode);
@@ -22,6 +23,8 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDispos
 	public string Name => Resources.plugin_name;
 	public string Description => Resources.plugin_description;
 	public static string PluginID => "7ce12aff470442158be4b7c5d02ef63e";
+
+	private record ResultData(Note Note);
 
 	public IEnumerable<PluginAdditionalOption> AdditionalOptions =>
 	[
@@ -62,14 +65,14 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDispos
 			[
 				new Result
 				{
-					Title = Properties.Resources.error_no_auth_token,
-					SubTitle = Properties.Resources.error_no_auth_token_desc,
+					Title = Resources.error_no_auth_token,
+					SubTitle = Resources.error_no_auth_token_desc,
 					IcoPath = _iconPath,
 				},
 			];
 		}
 
-		IEnumerable<Note> notes = _cache.GetOrAdd("notes", Helpers.NotesHelper.GetAllNotes);
+		IEnumerable<Note> notes = _cache.GetOrAdd("notes", NotesHelper.GetAllNotes);
 		var results = notes.Select(note =>
 		{
 			MatchResult matches = StringMatcher.FuzzySearch(query.Search, note.Title);
@@ -79,6 +82,7 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDispos
 				IcoPath = _iconPath,
 				Score = matches.Score,
 				TitleHighlightData = matches.MatchData,
+				ContextData = new ResultData(note),
 				Action = _ => NotesHelper.OpenInBrowser(note, (NoteViewMode)_viewMode!),
 			};
 		}).ToList();
@@ -91,6 +95,47 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDispos
 		return results;
 	}
 
+	public List<ContextMenuResult> LoadContextMenus(Result selectedResult)
+	{
+		if (selectedResult.ContextData is not ResultData selectedData)
+		{
+			return [];
+		}
+
+		return [
+			new ()
+			{
+				PluginName = Name,
+				Title = Resources.tooltip_open_edit,
+				Glyph="\xE70F",
+				FontFamily = "Segoe Fluent Icons,Segoe MDL2 Assets",
+				AcceleratorKey = Key.E,
+				AcceleratorModifiers = ModifierKeys.Control | ModifierKeys.Alt,
+				Action = _ => NotesHelper.OpenInBrowser(selectedData.Note, NoteViewMode.Edit),
+			},
+			new ()
+			{
+				PluginName = Name,
+				Title = Resources.tooltip_open_both,
+				Glyph = "\xE736",
+				FontFamily = "Segoe Fluent Icons,Segoe MDL2 Assets",
+				AcceleratorKey = Key.B,
+				AcceleratorModifiers = ModifierKeys.Control | ModifierKeys.Alt,
+				Action = _ => NotesHelper.OpenInBrowser(selectedData.Note, NoteViewMode.Both),
+			},
+			new ()
+			{
+				PluginName = Name,
+				Title = Resources.tooltip_open_view,
+				Glyph = "\xE890",
+				FontFamily = "Segoe Fluent Icons,Segoe MDL2 Assets",
+				AcceleratorKey = Key.V,
+				AcceleratorModifiers = ModifierKeys.Control | ModifierKeys.Alt,
+				Action = _ => NotesHelper.OpenInBrowser(selectedData.Note, NoteViewMode.View),
+			},
+		];
+	}
+
 	public void Init(PluginInitContext context)
 	{
 		_context = context ?? throw new ArgumentNullException(nameof(context));
@@ -100,9 +145,9 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IReloadable, IDispos
 		UpdateIconPath(_context.API.GetCurrentTheme());
 	}
 
-	public string GetTranslatedPluginTitle() => Properties.Resources.plugin_name;
+	public string GetTranslatedPluginTitle() => Resources.plugin_name;
 
-	public string GetTranslatedPluginDescription() => Properties.Resources.plugin_description;
+	public string GetTranslatedPluginDescription() => Resources.plugin_description;
 
 	private void OnThemeChanged(Theme oldtheme, Theme newTheme) => UpdateIconPath(newTheme);
 

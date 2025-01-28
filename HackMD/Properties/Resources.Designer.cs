@@ -88,7 +88,7 @@ namespace Community.PowerToys.Run.Plugin.HackMD.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HackHD.
+        ///   Looks up a localized string similar to HackMD.
         /// </summary>
         internal static string plugin_name {
             get {
@@ -124,7 +124,7 @@ namespace Community.PowerToys.Run.Plugin.HackMD.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The view mode used in note.
+        ///   Looks up a localized string similar to The view mode used with notes.
         /// </summary>
         internal static string setting_view_mode_desc {
             get {
@@ -147,6 +147,33 @@ namespace Community.PowerToys.Run.Plugin.HackMD.Properties {
         internal static string setting_view_mode_view {
             get {
                 return ResourceManager.GetString("setting_view_mode_view", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in both mode (Ctrl+Alt+B).
+        /// </summary>
+        internal static string tooltip_open_both {
+            get {
+                return ResourceManager.GetString("tooltip_open_both", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in edit mode (Ctrl+Alt+E).
+        /// </summary>
+        internal static string tooltip_open_edit {
+            get {
+                return ResourceManager.GetString("tooltip_open_edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in view mode (Ctrl+Alt+V).
+        /// </summary>
+        internal static string tooltip_open_view {
+            get {
+                return ResourceManager.GetString("tooltip_open_view", resourceCulture);
             }
         }
     }
