@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="context_copy_link" xml:space="preserve">
+    <value>Copy publish link (Ctrl+C)</value>
+  </data>
+  <data name="context_open_both" xml:space="preserve">
+    <value>Open in both mode (Ctrl+Alt+B)</value>
+  </data>
+  <data name="context_open_edit" xml:space="preserve">
+    <value>Open in edit mode (Ctrl+Alt+E)</value>
+  </data>
+  <data name="context_open_view" xml:space="preserve">
+    <value>Open in view mode (Ctrl+Alt+V)</value>
+  </data>
   <data name="error_no_auth_token" xml:space="preserve">
     <value>API token is not set</value>
   </data>
@@ -146,14 +158,5 @@
   </data>
   <data name="setting_view_mode_view" xml:space="preserve">
     <value>View</value>
-  </data>
-  <data name="tooltip_open_both" xml:space="preserve">
-    <value>Open in both mode (Ctrl+Alt+B)</value>
-  </data>
-  <data name="tooltip_open_edit" xml:space="preserve">
-    <value>Open in edit mode (Ctrl+Alt+E)</value>
-  </data>
-  <data name="tooltip_open_view" xml:space="preserve">
-    <value>Open in view mode (Ctrl+Alt+V)</value>
   </data>
 </root>

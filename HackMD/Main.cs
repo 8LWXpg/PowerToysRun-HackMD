@@ -3,6 +3,7 @@ using Community.PowerToys.Run.Plugin.HackMD.Properties;
 using LazyCache;
 using ManagedCommon;
 using Microsoft.PowerToys.Settings.UI.Library;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wox.Infrastructure;
@@ -97,16 +98,27 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IContextMenu, IReloa
 
 	public List<ContextMenuResult> LoadContextMenus(Result selectedResult)
 	{
-		if (selectedResult.ContextData is not ResultData selectedData)
-		{
-			return [];
-		}
-
-		return [
+		return selectedResult.ContextData is not ResultData selectedData
+			? []
+			: (List<ContextMenuResult>)[
 			new ()
 			{
 				PluginName = Name,
-				Title = Resources.tooltip_open_edit,
+				Title = Resources.context_copy_link,
+				Glyph = "\xE8C8",
+				FontFamily = "Segoe Fluent Icons,Segoe MDL2 Assets",
+				AcceleratorKey = Key.C,
+				AcceleratorModifiers = ModifierKeys.Control,
+				Action = _ =>
+				{
+					Clipboard.SetText(selectedData.Note.PublishLink);
+					return true;
+				},
+			},
+			new ()
+			{
+				PluginName = Name,
+				Title = Resources.context_open_edit,
 				Glyph="\xE70F",
 				FontFamily = "Segoe Fluent Icons,Segoe MDL2 Assets",
 				AcceleratorKey = Key.E,
@@ -116,7 +128,7 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IContextMenu, IReloa
 			new ()
 			{
 				PluginName = Name,
-				Title = Resources.tooltip_open_both,
+				Title = Resources.context_open_both,
 				Glyph = "\xE736",
 				FontFamily = "Segoe Fluent Icons,Segoe MDL2 Assets",
 				AcceleratorKey = Key.B,
@@ -126,7 +138,7 @@ public class Main : IPlugin, IPluginI18n, ISettingProvider, IContextMenu, IReloa
 			new ()
 			{
 				PluginName = Name,
-				Title = Resources.tooltip_open_view,
+				Title = Resources.context_open_view,
 				Glyph = "\xE890",
 				FontFamily = "Segoe Fluent Icons,Segoe MDL2 Assets",
 				AcceleratorKey = Key.V,

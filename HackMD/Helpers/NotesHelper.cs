@@ -33,7 +33,7 @@ public static class NotesHelper
 		Helper.OpenCommandInShell(DefaultBrowserInfo.Path, DefaultBrowserInfo.ArgumentsPattern, $"https://hackmd.io/{note.Id}?{viewMode.ToUrlString()}");
 }
 
-public record Note(string Id, string Title);
+public record Note(string Id, string Title, string PublishLink);
 
 public enum NoteViewMode
 {

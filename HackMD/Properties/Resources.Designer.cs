@@ -61,6 +61,42 @@ namespace Community.PowerToys.Run.Plugin.HackMD.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy publish link (Ctrl+C).
+        /// </summary>
+        internal static string context_copy_link {
+            get {
+                return ResourceManager.GetString("context_copy_link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in both mode (Ctrl+Alt+B).
+        /// </summary>
+        internal static string context_open_both {
+            get {
+                return ResourceManager.GetString("context_open_both", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in edit mode (Ctrl+Alt+E).
+        /// </summary>
+        internal static string context_open_edit {
+            get {
+                return ResourceManager.GetString("context_open_edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in view mode (Ctrl+Alt+V).
+        /// </summary>
+        internal static string context_open_view {
+            get {
+                return ResourceManager.GetString("context_open_view", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to API token is not set.
         /// </summary>
         internal static string error_no_auth_token {
@@ -147,33 +183,6 @@ namespace Community.PowerToys.Run.Plugin.HackMD.Properties {
         internal static string setting_view_mode_view {
             get {
                 return ResourceManager.GetString("setting_view_mode_view", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Open in both mode (Ctrl+Alt+B).
-        /// </summary>
-        internal static string tooltip_open_both {
-            get {
-                return ResourceManager.GetString("tooltip_open_both", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Open in edit mode (Ctrl+Alt+E).
-        /// </summary>
-        internal static string tooltip_open_edit {
-            get {
-                return ResourceManager.GetString("tooltip_open_edit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Open in view mode (Ctrl+Alt+V).
-        /// </summary>
-        internal static string tooltip_open_view {
-            get {
-                return ResourceManager.GetString("tooltip_open_view", resourceCulture);
             }
         }
     }
