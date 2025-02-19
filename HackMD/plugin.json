@@ -5,7 +5,7 @@
 	"IsGlobal": false,
 	"Name": "HackMD",
 	"Author": "8LWXpg",
-	"Version": "1.3.0",
+	"Version": "1.4.0",
 	"Language": "csharp",
 	"Website": "https://github.com/8LWXpg/PowerToysRun-HackMD",
 	"ExecuteFileName": "Community.PowerToys.Run.Plugin.HackMD.dll",
